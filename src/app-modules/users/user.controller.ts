@@ -1,5 +1,5 @@
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { UserService } from "./user.service";
 import { UserEntity } from "./entities/user.entity";
 import { CreateUserDto } from "./dto/create-user.dto";
@@ -16,7 +16,7 @@ export class UserController {
 	}
 
 	@Get("me")
-	get_me() {
-		return;
+	getme(@Param() payload) {
+		return this.userService.getMe(payload);
 	}
 }

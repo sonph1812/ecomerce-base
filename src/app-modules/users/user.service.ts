@@ -29,4 +29,8 @@ export class UserService {
 
 		return await this.userRepository.save(createUserDto);
 	}
+
+	async getMe(payload) {
+		return "getme";
+	}
 }
